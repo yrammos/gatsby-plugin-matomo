@@ -3,7 +3,7 @@ import React from 'react'
 function buildTrackingCode(pluginOptions) {
   const script = pluginOptions.localScript
     ? pluginOptions.localScript
-    : `${pluginOptions.matomoUrl}/piwik.js`
+    : `${pluginOptions.matomoUrl}/js`
 
   const html = `
     window.dev = ${pluginOptions.dev}
@@ -11,7 +11,7 @@ function buildTrackingCode(pluginOptions) {
       window._paq = window._paq || [];
       ${pluginOptions.requireConsent ? 'window._paq.push([\'requireConsent\']);' : ''}
       ${pluginOptions.disableCookies ? 'window._paq.push([\'disableCookies\']);' : ''}
-      window._paq.push(['setTrackerUrl', '${pluginOptions.matomoUrl}/piwik.php']);
+      window._paq.push(['setTrackerUrl', '${pluginOptions.matomoUrl}/php']);
       window._paq.push(['setSiteId', '${pluginOptions.siteId}']);
       window._paq.push(['trackPageView']);
       window._paq.push(['enableLinkTracking']);
@@ -39,7 +39,7 @@ function buildTrackingCode(pluginOptions) {
 }
 
 function buildTrackingCodeNoJs(pluginOptions, pathname) {
-  const html = `<img src="${pluginOptions.matomoUrl}/piwik.php?idsite=${pluginOptions.siteId}&rec=1&url=${pluginOptions.siteUrl + pathname}" style="border:0" alt="tracker" />`
+  const html = `<img src="${pluginOptions.matomoUrl}/php?idsite=${pluginOptions.siteId}&rec=1&url=${pluginOptions.siteUrl + pathname}" style="border:0" alt="tracker" />`
 
   return (
     <noscript

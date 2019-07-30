@@ -8,7 +8,6 @@ function buildTrackingCode(pluginOptions) {
   const php = pluginOptions.localPHP
 	? pluginOptions.localPHP
 	: '${pluginOptions.matomoUrl}/php'
-  }
 
   const html = `
     window.dev = ${pluginOptions.dev}

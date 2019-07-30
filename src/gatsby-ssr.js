@@ -3,7 +3,12 @@ import React from 'react'
 function buildTrackingCode(pluginOptions) {
   const script = pluginOptions.localScript
     ? pluginOptions.localScript
-    : `${pluginOptions.matomoUrl}/js`
+	: `${pluginOptions.matomoUrl}/js`
+
+  const php = pluginOptions.localPHP
+	? pluginOptions.localPHP
+	: '${pluginOptions.matomoUrl}/php'
+  }
 
   const html = `
     window.dev = ${pluginOptions.dev}
@@ -25,7 +30,7 @@ function buildTrackingCode(pluginOptions) {
 
       if (window.dev === true) {
         console.log('[Matomo] Tracking initialized')
-        console.log('[Matomo] matomoUrl: ${pluginOptions.matomoUrl}, siteId: ${pluginOptions.siteId}')
+		console.log('[Matomo] matomoUrl: ${pluginOptions.matomoUrl}, siteId: ${pluginOptions.siteId}')
       }
     }
   `

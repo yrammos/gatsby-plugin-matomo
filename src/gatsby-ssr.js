@@ -15,7 +15,7 @@ function buildTrackingCode(pluginOptions) {
       window._paq = window._paq || [];
       ${pluginOptions.requireConsent ? 'window._paq.push([\'requireConsent\']);' : ''}
       ${pluginOptions.disableCookies ? 'window._paq.push([\'disableCookies\']);' : ''}
-      window._paq.push(['setTrackerUrl', '${pluginOptions.matomoUrl}/php']);
+      window._paq.push(['setTrackerUrl', '${php}/php']);
       window._paq.push(['setSiteId', '${pluginOptions.siteId}']);
       window._paq.push(['trackPageView']);
       window._paq.push(['enableLinkTracking']);

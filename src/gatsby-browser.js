@@ -39,7 +39,8 @@ exports.onRouteUpdate = ({ location }) => {
       window._paq.push(['setCustomUrl', pathname])
       window._paq.push(['setDocumentTitle', pathname])
       window._paq.push(['trackPageView'])
-      window._paq.push(['enableLinkTracking'])
+	  window._paq.push(['enableLinkTracking'])
+	  _paq.push(["enableHeartBeatTimer", 30]);
 
       if (window.dev) {
         console.log(`[Matomo] Page view for: ${pathname}`)

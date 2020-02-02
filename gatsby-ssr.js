@@ -14,8 +14,6 @@ function buildTrackingCode(pluginOptions) {
   var html =
   `
     window._paq = window._paq || [];
-    ${requireConsent ? "window._paq.push(['requireConsent']);" : ''}
-    ${disableCookies ? "window._paq.push(['disableCookies']);" : ''}
     window._paq.push(['enableHeartBeatTimer']);
     window.start = new Date();
     (function(){var u = ${pluginOptions.siteUrl};

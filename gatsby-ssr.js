@@ -8,12 +8,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function buildTrackingCode(pluginOptions) {
   var script = pluginOptions.localScript ? pluginOptions.localScript : pluginOptions.matomoUrl + '/js';
-
-  var php = pluginOptions.localPHP ? pluginOptions.localPHP : '${pluginOptions.matomoUrl}/php';
+  var requireConsent = pluginOptions.requireConsent
+  var requireCookies = pluginOptions.requireCookies
+  var siteUrl = pluginOptions.siteUrl
+  var php = pluginOptions.localPHP ? pluginOptions.localPHP : `${pluginOptions.matomoUrl}/php`;
 
   var html =
   `
     window._paq = window._paq || [];
+    ${requireConsent ? "window._paq.push(['requireConsent']);" : ''}
+    ${disableCookies ? "window._paq.push(['disableCookies']);" : ''}
     window._paq.push(['enableHeartBeatTimer']);
     window.start = new Date();
     (function(){var u = ${pluginOptions.siteUrl};

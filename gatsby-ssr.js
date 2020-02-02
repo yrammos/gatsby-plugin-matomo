@@ -9,7 +9,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function buildTrackingCode(pluginOptions) {
   var script = pluginOptions.localScript ? pluginOptions.localScript : pluginOptions.matomoUrl + '/js';
   var requireConsent = pluginOptions.requireConsent
-  var requireCookies = pluginOptions.requireCookies
+  var disableCookies = pluginOptions.disableCookies
   var siteUrl = pluginOptions.siteUrl
   var php = pluginOptions.localPHP ? pluginOptions.localPHP : `${pluginOptions.matomoUrl}/php`;
 
@@ -20,8 +20,8 @@ function buildTrackingCode(pluginOptions) {
     ${disableCookies ? "window._paq.push(['disableCookies']);" : ''}
     window._paq.push(['enableHeartBeatTimer']);
     window.start = new Date();
-    (function(){var u = ${pluginOptions.siteUrl};
-      _paq.push([ 'setTrackerUrl', u + ${php} ]);
+    (function(){var u = '${pluginOptions.siteUrl}';
+      _paq.push([ 'setTrackerUrl', u + '${php}' ]);
       _paq.push([ 'setSiteId', '${siteId}' ]);
       var d = document,
           g = d.createElement('script'),
@@ -29,7 +29,7 @@ function buildTrackingCode(pluginOptions) {
       g.type = 'text/javascript';
       g.async = true;
       g.defer = true;
-      g.src = u + ${php};
+      g.src = u + '${php}';
       s.parentNode.insertBefore(g, s);
     })();
   `

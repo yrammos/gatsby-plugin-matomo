@@ -22,7 +22,7 @@ function buildTrackingCode(pluginOptions) {
     window._paq.push(['enableHeartBeatTimer']);
     window.start = new Date();
     (function(){var u = '${pluginOptions.siteUrl}';
-      _paq.push([ 'setTrackerUrl', u + '${php}' ]);
+      _paq.push([ 'setTrackerUrl', '${php}' ]);
       _paq.push([ 'setSiteId', '${siteId}' ]);
       var d = document,
           g = d.createElement('script'),
@@ -30,7 +30,7 @@ function buildTrackingCode(pluginOptions) {
       g.type = 'text/javascript';
       g.async = true;
       g.defer = true;
-      g.src = u + '${php}';
+      g.src = '${php}';
       s.parentNode.insertBefore(g, s);
     })();
   `

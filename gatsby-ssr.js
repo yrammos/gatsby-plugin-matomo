@@ -11,6 +11,7 @@ function buildTrackingCode(pluginOptions) {
   var requireConsent = pluginOptions.requireConsent
   var disableCookies = pluginOptions.disableCookies
   var siteUrl = pluginOptions.siteUrl
+  var siteId = pluginOptions.siteId
   var php = pluginOptions.localPHP ? pluginOptions.localPHP : `${pluginOptions.matomoUrl}/php`;
 
   var html =

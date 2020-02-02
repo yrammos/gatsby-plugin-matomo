@@ -7,11 +7,11 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function buildTrackingCode(pluginOptions) {
-  var script = pluginOptions.localScript ? pluginOptions.localScript : pluginOptions.matomoUrl + '/js';
-  var requireConsent = pluginOptions.requireConsent
-  var disableCookies = pluginOptions.disableCookies
-  var siteUrl = pluginOptions.siteUrl
-  var siteId = pluginOptions.siteId
+  var script = pluginOptions.localScript;
+  var requireConsent = pluginOptions.requireConsent;
+  var disableCookies = pluginOptions.disableCookies;
+  var siteUrl = pluginOptions.siteUrl;
+  var siteId = pluginOptions.siteId;
   var php = pluginOptions.localPHP ? pluginOptions.localPHP : `${pluginOptions.matomoUrl}/php`;
 
   var html =

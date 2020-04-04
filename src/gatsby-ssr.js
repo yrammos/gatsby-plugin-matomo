@@ -6,29 +6,12 @@ function buildTrackingCode(pluginOptions) {
     : `${pluginOptions.matomoUrl}/js`
 
   const html = `
-    window.dev = ${pluginOptions.dev}
-    if (window.dev === true || !(navigator.doNotTrack == '1' || window.doNotTrack == '1')) {
-      window._paq = window._paq || [];
-      ${pluginOptions.requireConsent ? 'window._paq.push([\'requireConsent\']);' : ''}
-      ${pluginOptions.disableCookies ? 'window._paq.push([\'disableCookies\']);' : ''}
-      window._paq.push(['setTrackerUrl', '${pluginOptions.matomoUrl}/php']);
-      window._paq.push(['setSiteId', '${pluginOptions.siteId}']);
-      window._paq.push(['trackPageView']);
-      window._paq.push(['enableLinkTracking']);
-      window._paq.push(['enableHeartBeatTimer']);
-      window.start = new Date();
-
-      (function() {
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src='${script}'; s.parentNode.insertBefore(g,s);
-      })();
-
-      if (window.dev === true) {
-        console.log('[Matomo] Tracking initialized')
-        console.log('[Matomo] matomoUrl: ${pluginOptions.matomoUrl}, siteId: ${pluginOptions.siteId}')
-      }
-    }
-  `
+window.dev=${pluginOptions.dev}
+if(window.dev===true||!(navigator.doNotTrack=='1'||window.doNotTrack=='1')){window._paq=window._paq||[];${pluginOptions.requireConsent?'window._paq.push([\'requireConsent\']);':''}
+${pluginOptions.disableCookies?'window._paq.push([\'disableCookies\']);':''}
+window._paq.push(['setTrackerUrl','${pluginOptions.matomoUrl}/php']);window._paq.push(['setSiteId','${pluginOptions.siteId}']);window._paq.push(['trackPageView']);window._paq.push(['enableLinkTracking']);window._paq.push(['enableHeartBeatTimer']);window.start=new Date();(function(){var d=document,g=d.createElement('script'),s=d.getElementsByTagName('script')[0];g.type='text/javascript';g.async=true;g.defer=true;g.src='${script}';s.parentNode.insertBefore(g,s);})();if(window.dev===true){console.log('[Matomo] Tracking initialized')
+console.log('[Matomo] matomoUrl: ${pluginOptions.matomoUrl}, siteId: ${pluginOptions.siteId}')}}
+`
 
   return (
     <script

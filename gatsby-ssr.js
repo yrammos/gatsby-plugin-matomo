@@ -20,7 +20,7 @@ function buildTrackingCode(pluginOptions) {
     ${requireConsent ? "window._paq.push(['requireConsent']);" : ''}
     ${disableCookies ? "window._paq.push(['disableCookies']);" : ''}
     window._paq.push(['enableHeartBeatTimer']);
-    _paq.push([‘setSecureCookie’, true]);
+    window._paq.push([‘setSecureCookie’, true]);
     window.start = new Date();
     (function(){var u = '${pluginOptions.siteUrl}';
       _paq.push([ 'setTrackerUrl', '${php}' ]);

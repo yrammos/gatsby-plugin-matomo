@@ -16,24 +16,9 @@ function buildTrackingCode(pluginOptions) {
 
   var html =
   `
-    window._paq = window._paq || [];
-    ${requireConsent ? "window._paq.push(['requireConsent']);" : ''}
-    ${disableCookies ? "window._paq.push(['disableCookies']);" : ''}
-    window._paq.push(['enableHeartBeatTimer']);
-    window._paq.push([‘setSecureCookie’, true]);
-    window.start = new Date();
-    (function(){var u = '${pluginOptions.siteUrl}';
-      _paq.push([ 'setTrackerUrl', '${php}' ]);
-      _paq.push([ 'setSiteId', '${siteId}' ]);
-      var d = document,
-          g = d.createElement('script'),
-          s = d.getElementsByTagName('script')[0];
-      g.type = 'text/javascript';
-      g.async = true;
-      g.defer = true;
-      g.src = '${php}';
-      s.parentNode.insertBefore(g, s);
-    })();
+window._paq=window._paq||[];${requireConsent?"window._paq.push(['requireConsent']);":''}
+${disableCookies?"window._paq.push(['disableCookies']);":''}
+window._paq.push(['enableHeartBeatTimer']);window._paq.push([‘setSecureCookie’,!0]);window.start=new Date();(function(){var u='${pluginOptions.siteUrl}';_paq.push(['setTrackerUrl','${php}']);_paq.push(['setSiteId','${siteId}']);var d=document,g=d.createElement('script'),s=d.getElementsByTagName('script')[0];g.type='text/javascript';g.async=!0;g.defer=!0;g.src='${php}';s.parentNode.insertBefore(g,s)})()
   `
 
   return _react2.default.createElement('script', {
